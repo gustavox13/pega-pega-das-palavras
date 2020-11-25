@@ -7,6 +7,10 @@ public class CardClass : MonoBehaviour
     [SerializeField]
     private GameObject controler;
 
+    [SerializeField]
+    private GameObject cardSongObj;
+
+    private AudioSource cardsong;
 
     [SerializeField]
     private int myCode;
@@ -15,12 +19,15 @@ public class CardClass : MonoBehaviour
 
     private void Start()
     {
+        cardsong = cardSongObj.GetComponent<AudioSource>();
+
         myAnim = this.gameObject.GetComponent<Animator>();
     }
 
 
     private void OnMouseUpAsButton()
     {
+        cardsong.Play();
         controler.GetComponent<GameControler>().CheckAnswer(myCode);
     }
 

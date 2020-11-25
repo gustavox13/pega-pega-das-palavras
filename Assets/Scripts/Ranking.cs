@@ -17,17 +17,16 @@ public class Ranking : MonoBehaviour
 
     private int score;
 
-
     private void Start()
     {
-        //score = gameController.GetComponent<GameController>().QuantPlays;
+        score = gameControler.GetComponent<GameControler>().QuantPlay;
 
         StartCoroutine(ShowStars());
     }
 
     IEnumerator ShowStars()
     {
-        if(score <= 5)
+        if(score <= 6)
         {
             
             star1.SetActive(true);
@@ -39,7 +38,7 @@ public class Ranking : MonoBehaviour
             yield return new WaitForSeconds(0.4f);
 
             star3.SetActive(true);
-        } else if(score > 5  && score <= 9)
+        } else if(score > 6  && score <= 11)
         {
             star1.SetActive(true);
 
@@ -57,7 +56,7 @@ public class Ranking : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("menu");
+        SceneManager.LoadScene("Menu");
     }
 
 }
